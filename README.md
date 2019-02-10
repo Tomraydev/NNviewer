@@ -1,7 +1,6 @@
-# NNviewer
-### Neural network visualizer
-Example: MNIST database of handwritten digits
--
+# NNviewer - Neural network visualizer
+#### Example: MNIST database of handwritten digits
+---
 #### Correct classification
 ![Example](./important_images/example_positive.png)
 
@@ -12,7 +11,8 @@ Example: MNIST database of handwritten digits
 ![Example](./important_images/net02_layer01.png)
 
 #### Neuron weights  - penultimate layer
+Note how the visualized weights resemble the general characteristics of each digit
 ![Example](./important_images/net02_layer02.png)
 
-#### Neuron weights  - penultimate layer - bad network
+#### Neuron weights  - penultimate layer - **bad** network
 ![Example](./important_images/bad_net.png)
