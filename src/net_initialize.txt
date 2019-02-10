@@ -1,0 +1,15 @@
+"""Loads the data and creates the network"""
+import mnist_loader
+training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
+
+import network
+net = network.Network([784, 30, 10])
+#net.SGD(training_data, 30, 10, 3.0, test_data=test_data)
+
+
+###libraries
+#import matplotlib.pyplot as plt
+#
+#
+#display image of a number
+#plt.imshow(test_data[5][0].reshape(28,28), cmap='viridis')
