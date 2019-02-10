@@ -1,4 +1,8 @@
 # NNviewer - Neural network visualizer
+
+Developed to provide visual feedback about neural networks. Network formatted as in the book
+["Neural networks and deep learning"](http://neuralnetworksanddeeplearning.com/) by [Michael Nielsen](https://github.com/mnielsen).
+
 #### Example: MNIST database of handwritten digits
 ---
 #### Correct classification
