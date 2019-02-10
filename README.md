@@ -4,7 +4,7 @@
 #### Correct classification
 ![Example](./important_images/example_positive.png)
 
-#### incorrect classification
+#### Incorrect classification
 ![Example](./important_images/example_negative.png)
 
 #### Neuron weights  - input layer
@@ -14,5 +14,5 @@
 Note how the visualized weights resemble the general characteristics of each digit
 ![Example](./important_images/net02_layer02.png)
 
-#### Neuron weights  - penultimate layer - **bad** network
+#### Neuron weights  - penultimate layer - bad network
 ![Example](./important_images/bad_net.png)
