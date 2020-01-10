@@ -1,2 +1,2 @@
 clean:
-	rm ./images/number* ./images/neuron* ./src/*.pyc
+	rm -rf ./output/number* ./output/neuron* ./src/__pycache__
