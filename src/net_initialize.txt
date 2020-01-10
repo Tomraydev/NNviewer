@@ -9,7 +9,7 @@ net = network.Network([784, 30, 10])
 
 ###libraries
 #import matplotlib.pyplot as plt
-#
+#./
 #
 #display image of a number
 #plt.imshow(test_data[5][0].reshape(28,28), cmap='viridis')
