@@ -5,12 +5,16 @@ import network  # Neural net classes and algorithms
 import numpy as np
 import pickle  # loading networks and test data
 import time  # calculating the execution time
+import os
 
 # Libraries for the GUI
 from tkinter import Tk, Frame, Button, Label, Entry, PhotoImage  # Creating the GUI
 from tkinter import ttk  # 'notebook' creating tabs
 from tkinter import filedialog  # Browsing files
 import matplotlib.pyplot as plt
+
+# Change current dir to viewer.py parent dir
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # ************ Load test data***************
 def load_test_data():
@@ -28,7 +32,6 @@ def load_network():
         print("Error opening file")
         return
 
-    start = time.clock()
     file_network = open(fileName, "rb")  #'./networks/net_pickle'
     global net
     net = pickle.load(file_network, encoding="latin1")
@@ -36,20 +39,19 @@ def load_network():
 
     print("\nNetwork loaded:")
     print("Sizes:    ", net.sizes)
-    print("Loaded the network in %.3f seconds" % (time.clock() - start))
-
-    nb.tab(2, state="normal")  # enable weights page
-    btn_load_second.config(state="normal")
 
     # Update weights page
-    start = time.clock()
+    nb.tab(2, state="normal")  # enable weights page
+    btn_load_second.config(state="normal")
+    for widget in page_weights.winfo_children():
+        widget.destroy()
     layer_id = 0
     for neuron_id in range(net.sizes[layer_id + 1]):
-
         # Calculate the relevant importance of the weight
         weight_relevance = 0
         for w in range(len(net.weights[0][0])):
             weight_relevance += abs(net.weights[0][neuron_id][w])
+
         weight_relevance /= len(net.weights[0][0])
         weight_relevance_str = "I: %.2f" % weight_relevance
 
@@ -80,7 +82,7 @@ def load_network():
         l_bias = Label(frame_neuron, text=bias_str, width=10)
         l_bias.pack()
 
-    print("Loaded the image in %.3f seconds" % (time.clock() - start))
+    print("Weights page updated.")
 
 
 def generate_second_layer():
@@ -123,7 +125,7 @@ def generate_second_layer():
 # *************** classes ******************
 
 
-class Example:
+class ExampleViewer:
     def __init__(self, master):
         self.l_id = Label(master)
         self.l_id.pack()
@@ -219,7 +221,7 @@ btn_load_second.pack(pady=32)
 # ***************** Examples page *****************
 frame_output = Frame(page_examples)
 frame_output.pack()
-example_viewer = Example(frame_output)
+example_viewer = ExampleViewer(frame_output)
 
 frame_bottom = Frame(page_examples)
 frame_bottom.pack(ipadx=8, ipady=8)
