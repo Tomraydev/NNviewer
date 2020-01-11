@@ -7,22 +7,16 @@ import pickle  # loading networks and test data
 import time  # calculating the execution time
 
 # Libraries for the GUI
-from tkinter import *  # Creating the GUI
+from tkinter import Tk, Frame, Button, Label, Entry, PhotoImage  # Creating the GUI
 from tkinter import ttk  # 'notebook' creating tabs
 from tkinter import filedialog  # Browsing files
 import matplotlib.pyplot as plt
 
 # ************ Load test data***************
 def load_test_data():
-    start = time.clock()
-
     data_file = open("../data/test_data.pkl", "rb")
     global test_data
-    test_data = pickle.load(data_file)
-    data_file.close()
-
-    print("Loaded the data in %f seconds" % (time.clock() - start))
-
+    test_data = pickle.load(data_file, encoding="latin1")
     nb.tab(1, state="normal")  # enable examples page
 
 
@@ -214,9 +208,6 @@ nb.add(page_weights, text="weights", state="disabled")
 frame_start = Frame(page_start)
 frame_start.pack(pady=32)
 
-btn_load_data = Button(frame_start, text="load the data", command=load_test_data)
-btn_load_data.pack(side="left")
-
 btn_load_net = Button(frame_start, text="load the network", command=load_network)
 btn_load_net.pack(side="left")
 
@@ -260,4 +251,5 @@ btn_submit.pack()
 # ***************** weights page *****************
 # auto-populated
 # ************************************************
+load_test_data()
 root.mainloop()
