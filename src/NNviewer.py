@@ -13,7 +13,7 @@ from tkinter import ttk  # 'notebook' creating tabs
 from tkinter import filedialog  # Browsing files
 import matplotlib.pyplot as plt
 
-# Change current dir to NNviewer.py parent dir
+# Change current dir to viewer.py parent dir
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # ************ Load test data***************
